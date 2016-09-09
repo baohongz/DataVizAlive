@@ -15,9 +15,9 @@
 
 </head>
 <body>
-<table border=0><tr>
-<td>
-<div class="volcano" id="volcano_1"></div></br></br>
+<table border=0 width=100%><tr>
+<td align=center>
+<div class="volcano" id="volcano_1" align=center></div></br></br>
 <script>$('#volcano_1').highcharts({"chart":{"type":"scatter","zoomType":"xy"},
 "title": { "text": "IRF5KD_NT" },
 
@@ -5087,82 +5087,6 @@ tooltip: {
 "data":[[-8.6456399938855,1.30102999566398],[8.6456399938855,1.30102999566398]]}]});
 </script></div>
 </td>
-<td>
-<div class="volcano" id="volcano_2"></div></br></br>
-<script>$('#volcano_2').highcharts({"chart":{"type":"scatter","zoomType":"xy"},
-"title": { "text": "" },
-
-"xAxis":{"title":{"enabled":true,"text":"log2(Fold Change)"},
-"startOnTick":true,"endOnTick":true,"showLastLabel":true,"gridLineWidth":1,"min":-7.284,"max":8.054},
-"yAxis":{"title":{"enabled":true,"text":"-log10(FDR)"},
-"startOnTick":true,"endOnTick":true,"showLastLabel":true,"gridLineWidth":1,"min":0.344,"max":33.075},
-"plotOptions":{
-	"scatter":{ "allowPointSelect":true,
-		"marker": {"radius":2,"states":{"hover":{"enabled":true,"lineColor":"#333333"}}},
-		"states": {"hover":{"marker":{"enabled":true}}},
-		"turboThreshold":50000
-	},
-	series: {
-                 cursor: 'pointer',
-                 point: {
-                        events: {
-                            click: function (e) {
-$('#geneList').val($('#geneList').val() + ' ' + this.alt_name);
-								console.log(this);
-                            }
-                        }
-                    }
-                }
-},
-tooltip: {
-			useHTML: true,
-			headerFormat: '<span style="font-size:12px; color:green">{series.name}<br>',
-            pointFormat: "<b>name: </b>{point.alt_name}<br><b>id: </b><a href='http://useast.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g={point.name}' target=_blank>{point.name}</a><br><b>fold change: </b>{point.x}<br><b>significance: </b>{point.y}"
-        },
-
-"series":[
-{"name":"up-regulated","color":"#EE0000",
-        dataLabels: {
-            enabled: true,
-            x: 35,
-			y: 5,
-            formatter:function() {
-                if (this.point.y>2) {
-                return this.point.alt_name;
-                }
-            },
-            style:{color:"black"}
-        },
-
-"data":[
-{"x":,"y":, "name":"", "alt_name":""}]},
-{"name":"down-regulated","color":"#00CD00",
-        dataLabels: {
-            enabled: true,
-            x:-35,
-			y: 5,
-            formatter:function() {
-                if (this.point.y>2) {
-                return this.point.alt_name;
-                }
-            },
-            style:{color:"black"}
-        },
-
-"data":[
-{"x":,"y":, "name":"", "alt_name":""}]},
-{"name":"downfold threshold","color":"#000000","type":"line","dashStyle":"Dash","marker":{"enabled":false},
-"data":[[-1,-5],[-1,74]]},
-{"name":"upfold threshold","color":"#000000","type":"line","dashStyle":"Dash","marker":{"enabled":false},
-"data":[[1,-5],[1,74]]},
-{"name":"significance threshold","color":"#000000","type":"line","dashStyle":"DashDot","marker":{"enabled":false},
-"data":[[-8.6456399938855,1.30102999566398],[8.6456399938855,1.30102999566398]]}]});
-</script></div>
-</td>
 </tr></table>
-<br>
-<textarea name="geneList" id="geneList" cols="80" rows="8" spellcheck="false"></textarea>
-<br>
-<input type="button" value="Clear" onclick="javascript: document.getElementById('geneList').value = '';">
 </body>
 </html>
