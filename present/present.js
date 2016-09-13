@@ -13,14 +13,18 @@
   d3.selectAll("iframe").on("load", function() {
     this.contentWindow.focus();
 
+// click on the edges of the window to forward or reverse slides
 	d3.select(this.contentWindow).on("click", function() {
-console.log("x="+d3.event.x);
-console.log("y="+d3.event.y);
+
+		if (d3.event.screenX-window.screenX < 50) {
+			step(-1);
+		}
+		if (window.screenX+window.innerWidth - d3.event.screenX < 50) {
+			step(+1);
+		}
 
 	});
     d3.select(this.contentWindow).on("keydown", function() {
-
-console.log(d3.event.keyCode);	
       switch (d3.event.keyCode) {
         case 39: // right arrow
         case 32: // space
